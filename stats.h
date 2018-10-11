@@ -9,13 +9,16 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.h 
+ * @brief Holds function definitions
  *
- * <Add Extended Description Here>
+ * This file holds the function definitions
+ * which calculate statistics of values held in an array.
+ * This file was written as part of assignment 1 for a
+ * coursera course.
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Ankush Burman
+ * @date Oct 10, 2018
  *
  */
 #ifndef __STATS_H__
@@ -47,37 +50,37 @@
  *
  * @return returns 0
  */
-
  void print_statistics(unsigned char *array, int len);
-
 
 /**
  * @brief Function prints contents of array
  *
  * Function iterates over array and prints out all its contents
+ * Each line is coded to fit 8 elements while printing for readibility
  *
  * @parm array passing array by reference
  * @parm len passing the length of the array as an int
  *
  * @return returns 0
  */
-
  void print_array(unsigned char *array, int len);
-
 
 /**
  * @brief Function finds the median
  *
- * Function finds median of all the values held in the array
+ * Function finds median of all the values held in the array.
+ * Function is coded to deal with arrays which have odd and even
+ * number of values. If array has odd number of values then the exact
+ * middle is the median. If array has even number of values then the
+ * median has to be calculated by using the two middle values
+ * (This can yield floats).
  * 
  * @parm array passing array by reference
  * @parm len passing the length of the array as an int
  *
- * @return returns median
+ * @return returns median as a floating point
  */
-
- int find_median(unsigned char *array, int len);
-
+ float find_median(unsigned char *array, int len);
 
 /**
  * @brief Function finds the mean
@@ -89,9 +92,7 @@
  *
  * @return returns mean
  */
-
- int find_mean(unsigned char *array, int len);
-
+ float find_mean(unsigned char *array, int len);
 
 /**
  * @brief Function finds the maximum
@@ -103,10 +104,8 @@
  *
  * @return returns maximum
  */
-
  int find_maximum(unsigned char *array, int len);
 
- 
  /**
  * @brief Function finds the minimum
  *
@@ -117,22 +116,48 @@
  *
  * @return returns minimum
  */
-
  int find_minimum(unsigned char *array, int len);
 
-
 /**
- * @brief Function sorts the array 
+ * @brief Function utilizes quick sort algorithm to sort array 
  *
- * Function sorts the array from largest to smallest
+ * Function sorts the array from largest to smallest by
+ * utilizing a recursive quicksort algorithm.
  * 
  * @parm array passing array by reference
- * @parm len passing the length of the array as an int
+ * @parm low passing the lowest index of array
+ * @parm high passing the highest index of array
  *
- * @return returns 0
+ * @return void
  */
+ void sort_array(unsigned char *array, int low, int high);
 
- void sort_array(unsigned char *array, int len);
+/**
+ * @brief Function partitions array for quicksort
+ *
+ * Function partitions the array based on a pivot point which is
+ * last  element of array. 
+ * 
+ * @parm array passing array by reference
+ * @parm low passing the lowest index of array
+ * @parm high passing the highest index of array
+ *
+ * @return new pivot point
+ */
+ int quicksort_partition(unsigned char *array, int low, int high);
+
+ /**
+ * @brief Function swaps values of variables
+ *
+ * Function swaps values of two unsigned char
+ * variables which are  passed by reference
+ * 
+ * @parm a passing first variable by reference
+ * @parm b passing secont variable by reference
+ *
+ * @return void
+ */
+ void swap(unsigned char *a, unsigned char *b);
 
 
 #endif /* __STATS_H__ */
